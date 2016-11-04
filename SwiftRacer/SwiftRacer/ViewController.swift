@@ -7,19 +7,19 @@
 //
 
 import UIKit
+import HealthKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    let shareTypes: [HKSampleType] = [HKQuantityType.quantityType(forIdentifier: .distanceCycling)!,
+                                      HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!,
+                                      HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                                      HKQuantityType.quantityType(forIdentifier: .distanceWheelchair)!]
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        HKHealthStore().requestAuthorization(toShare: nil, read: Set(shareTypes)) { (success, error) -> Void in
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
