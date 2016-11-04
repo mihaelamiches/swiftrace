@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11FE5E341DCD471000DD2A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E331DCD471000DD2A24 /* AppDelegate.swift */; };
+		11FE5E361DCD471000DD2A24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E351DCD471000DD2A24 /* ViewController.swift */; };
+		11FE5E391DCD471000DD2A24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FE5E371DCD471000DD2A24 /* Main.storyboard */; };
+		11FE5E3B1DCD471000DD2A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11FE5E3A1DCD471000DD2A24 /* Assets.xcassets */; };
+		11FE5E3E1DCD471000DD2A24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FE5E3C1DCD471000DD2A24 /* LaunchScreen.storyboard */; };
+		11FE5E491DCD471000DD2A24 /* SwiftRacerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E481DCD471000DD2A24 /* SwiftRacerTests.swift */; };
+		11FE5E541DCD471000DD2A24 /* SwiftRacerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E531DCD471000DD2A24 /* SwiftRacerUITests.swift */; };
+		11FE5E681DCD471D00DD2A24 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FE5E671DCD471D00DD2A24 /* Messages.framework */; };
+		11FE5E6B1DCD471D00DD2A24 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E6A1DCD471D00DD2A24 /* MessagesViewController.swift */; };
+		11FE5E6E1DCD471D00DD2A24 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FE5E6C1DCD471D00DD2A24 /* MainInterface.storyboard */; };
+		11FE5E701DCD471D00DD2A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11FE5E6F1DCD471D00DD2A24 /* Assets.xcassets */; };
+		11FE5E741DCD471D00DD2A24 /* SwiftRace.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11FE5E651DCD471C00DD2A24 /* SwiftRace.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11FE5E451DCD471000DD2A24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11FE5E281DCD470F00DD2A24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11FE5E2F1DCD470F00DD2A24;
+			remoteInfo = SwiftRacer;
+		};
+		11FE5E501DCD471000DD2A24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11FE5E281DCD470F00DD2A24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11FE5E2F1DCD470F00DD2A24;
+			remoteInfo = SwiftRacer;
+		};
+		11FE5E721DCD471D00DD2A24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11FE5E281DCD470F00DD2A24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11FE5E641DCD471C00DD2A24;
+			remoteInfo = SwiftRace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		11FE5E781DCD471D00DD2A24 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				11FE5E741DCD471D00DD2A24 /* SwiftRace.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		11FE5E301DCD471000DD2A24 /* SwiftRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11FE5E331DCD471000DD2A24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		11FE5E351DCD471000DD2A24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11FE5E381DCD471000DD2A24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11FE5E3A1DCD471000DD2A24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11FE5E3D1DCD471000DD2A24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		11FE5E3F1DCD471000DD2A24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11FE5E441DCD471000DD2A24 /* SwiftRacerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRacerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11FE5E481DCD471000DD2A24 /* SwiftRacerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRacerTests.swift; sourceTree = "<group>"; };
+		11FE5E4A1DCD471000DD2A24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11FE5E4F1DCD471000DD2A24 /* SwiftRacerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRacerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11FE5E531DCD471000DD2A24 /* SwiftRacerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRacerUITests.swift; sourceTree = "<group>"; };
+		11FE5E551DCD471000DD2A24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11FE5E651DCD471C00DD2A24 /* SwiftRace.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwiftRace.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		11FE5E671DCD471D00DD2A24 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		11FE5E6A1DCD471D00DD2A24 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		11FE5E6D1DCD471D00DD2A24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		11FE5E6F1DCD471D00DD2A24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11FE5E711DCD471D00DD2A24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11FE5E2D1DCD470F00DD2A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E411DCD471000DD2A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E4C1DCD471000DD2A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E621DCD471C00DD2A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E681DCD471D00DD2A24 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11FE5E271DCD470F00DD2A24 = {
+			isa = PBXGroup;
+			children = (
+				11FE5E321DCD471000DD2A24 /* SwiftRacer */,
+				11FE5E471DCD471000DD2A24 /* SwiftRacerTests */,
+				11FE5E521DCD471000DD2A24 /* SwiftRacerUITests */,
+				11FE5E691DCD471D00DD2A24 /* SwiftRace */,
+				11FE5E661DCD471D00DD2A24 /* Frameworks */,
+				11FE5E311DCD471000DD2A24 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11FE5E311DCD471000DD2A24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11FE5E301DCD471000DD2A24 /* SwiftRacer.app */,
+				11FE5E441DCD471000DD2A24 /* SwiftRacerTests.xctest */,
+				11FE5E4F1DCD471000DD2A24 /* SwiftRacerUITests.xctest */,
+				11FE5E651DCD471C00DD2A24 /* SwiftRace.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11FE5E321DCD471000DD2A24 /* SwiftRacer */ = {
+			isa = PBXGroup;
+			children = (
+				11FE5E331DCD471000DD2A24 /* AppDelegate.swift */,
+				11FE5E351DCD471000DD2A24 /* ViewController.swift */,
+				11FE5E371DCD471000DD2A24 /* Main.storyboard */,
+				11FE5E3A1DCD471000DD2A24 /* Assets.xcassets */,
+				11FE5E3C1DCD471000DD2A24 /* LaunchScreen.storyboard */,
+				11FE5E3F1DCD471000DD2A24 /* Info.plist */,
+			);
+			path = SwiftRacer;
+			sourceTree = "<group>";
+		};
+		11FE5E471DCD471000DD2A24 /* SwiftRacerTests */ = {
+			isa = PBXGroup;
+			children = (
+				11FE5E481DCD471000DD2A24 /* SwiftRacerTests.swift */,
+				11FE5E4A1DCD471000DD2A24 /* Info.plist */,
+			);
+			path = SwiftRacerTests;
+			sourceTree = "<group>";
+		};
+		11FE5E521DCD471000DD2A24 /* SwiftRacerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11FE5E531DCD471000DD2A24 /* SwiftRacerUITests.swift */,
+				11FE5E551DCD471000DD2A24 /* Info.plist */,
+			);
+			path = SwiftRacerUITests;
+			sourceTree = "<group>";
+		};
+		11FE5E661DCD471D00DD2A24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11FE5E671DCD471D00DD2A24 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		11FE5E691DCD471D00DD2A24 /* SwiftRace */ = {
+			isa = PBXGroup;
+			children = (
+				11FE5E6A1DCD471D00DD2A24 /* MessagesViewController.swift */,
+				11FE5E6C1DCD471D00DD2A24 /* MainInterface.storyboard */,
+				11FE5E6F1DCD471D00DD2A24 /* Assets.xcassets */,
+				11FE5E711DCD471D00DD2A24 /* Info.plist */,
+			);
+			path = SwiftRace;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11FE5E2F1DCD470F00DD2A24 /* SwiftRacer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11FE5E581DCD471000DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRacer" */;
+			buildPhases = (
+				11FE5E2C1DCD470F00DD2A24 /* Sources */,
+				11FE5E2D1DCD470F00DD2A24 /* Frameworks */,
+				11FE5E2E1DCD470F00DD2A24 /* Resources */,
+				11FE5E781DCD471D00DD2A24 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11FE5E731DCD471D00DD2A24 /* PBXTargetDependency */,
+			);
+			name = SwiftRacer;
+			productName = SwiftRacer;
+			productReference = 11FE5E301DCD471000DD2A24 /* SwiftRacer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11FE5E431DCD471000DD2A24 /* SwiftRacerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11FE5E5B1DCD471000DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRacerTests" */;
+			buildPhases = (
+				11FE5E401DCD471000DD2A24 /* Sources */,
+				11FE5E411DCD471000DD2A24 /* Frameworks */,
+				11FE5E421DCD471000DD2A24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11FE5E461DCD471000DD2A24 /* PBXTargetDependency */,
+			);
+			name = SwiftRacerTests;
+			productName = SwiftRacerTests;
+			productReference = 11FE5E441DCD471000DD2A24 /* SwiftRacerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11FE5E4E1DCD471000DD2A24 /* SwiftRacerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11FE5E5E1DCD471000DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRacerUITests" */;
+			buildPhases = (
+				11FE5E4B1DCD471000DD2A24 /* Sources */,
+				11FE5E4C1DCD471000DD2A24 /* Frameworks */,
+				11FE5E4D1DCD471000DD2A24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11FE5E511DCD471000DD2A24 /* PBXTargetDependency */,
+			);
+			name = SwiftRacerUITests;
+			productName = SwiftRacerUITests;
+			productReference = 11FE5E4F1DCD471000DD2A24 /* SwiftRacerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		11FE5E641DCD471C00DD2A24 /* SwiftRace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11FE5E751DCD471D00DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRace" */;
+			buildPhases = (
+				11FE5E611DCD471C00DD2A24 /* Sources */,
+				11FE5E621DCD471C00DD2A24 /* Frameworks */,
+				11FE5E631DCD471C00DD2A24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftRace;
+			productName = SwiftRace;
+			productReference = 11FE5E651DCD471C00DD2A24 /* SwiftRace.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11FE5E281DCD470F00DD2A24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = me;
+				TargetAttributes = {
+					11FE5E2F1DCD470F00DD2A24 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = FVV3CDGNCW;
+						ProvisioningStyle = Automatic;
+					};
+					11FE5E431DCD471000DD2A24 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = FVV3CDGNCW;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 11FE5E2F1DCD470F00DD2A24;
+					};
+					11FE5E4E1DCD471000DD2A24 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = FVV3CDGNCW;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 11FE5E2F1DCD470F00DD2A24;
+					};
+					11FE5E641DCD471C00DD2A24 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = FVV3CDGNCW;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 11FE5E2B1DCD470F00DD2A24 /* Build configuration list for PBXProject "SwiftRacer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11FE5E271DCD470F00DD2A24;
+			productRefGroup = 11FE5E311DCD471000DD2A24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11FE5E2F1DCD470F00DD2A24 /* SwiftRacer */,
+				11FE5E431DCD471000DD2A24 /* SwiftRacerTests */,
+				11FE5E4E1DCD471000DD2A24 /* SwiftRacerUITests */,
+				11FE5E641DCD471C00DD2A24 /* SwiftRace */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11FE5E2E1DCD470F00DD2A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E3E1DCD471000DD2A24 /* LaunchScreen.storyboard in Resources */,
+				11FE5E3B1DCD471000DD2A24 /* Assets.xcassets in Resources */,
+				11FE5E391DCD471000DD2A24 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E421DCD471000DD2A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E4D1DCD471000DD2A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E631DCD471C00DD2A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E701DCD471D00DD2A24 /* Assets.xcassets in Resources */,
+				11FE5E6E1DCD471D00DD2A24 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11FE5E2C1DCD470F00DD2A24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E361DCD471000DD2A24 /* ViewController.swift in Sources */,
+				11FE5E341DCD471000DD2A24 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E401DCD471000DD2A24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E491DCD471000DD2A24 /* SwiftRacerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E4B1DCD471000DD2A24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E541DCD471000DD2A24 /* SwiftRacerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FE5E611DCD471C00DD2A24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11FE5E6B1DCD471D00DD2A24 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11FE5E461DCD471000DD2A24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11FE5E2F1DCD470F00DD2A24 /* SwiftRacer */;
+			targetProxy = 11FE5E451DCD471000DD2A24 /* PBXContainerItemProxy */;
+		};
+		11FE5E511DCD471000DD2A24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11FE5E2F1DCD470F00DD2A24 /* SwiftRacer */;
+			targetProxy = 11FE5E501DCD471000DD2A24 /* PBXContainerItemProxy */;
+		};
+		11FE5E731DCD471D00DD2A24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11FE5E641DCD471C00DD2A24 /* SwiftRace */;
+			targetProxy = 11FE5E721DCD471D00DD2A24 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		11FE5E371DCD471000DD2A24 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11FE5E381DCD471000DD2A24 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		11FE5E3C1DCD471000DD2A24 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11FE5E3D1DCD471000DD2A24 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		11FE5E6C1DCD471D00DD2A24 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11FE5E6D1DCD471D00DD2A24 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11FE5E561DCD471000DD2A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		11FE5E571DCD471000DD2A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11FE5E591DCD471000DD2A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRacer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		11FE5E5A1DCD471000DD2A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRacer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		11FE5E5C1DCD471000DD2A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRacerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftRacer.app/SwiftRacer";
+			};
+			name = Debug;
+		};
+		11FE5E5D1DCD471000DD2A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRacerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftRacer.app/SwiftRacer";
+			};
+			name = Release;
+		};
+		11FE5E5F1DCD471000DD2A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRacerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SwiftRacer;
+			};
+			name = Debug;
+		};
+		11FE5E601DCD471000DD2A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRacerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SwiftRacer;
+			};
+			name = Release;
+		};
+		11FE5E761DCD471D00DD2A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRace/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacer.SwiftRace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		11FE5E771DCD471D00DD2A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = FVV3CDGNCW;
+				INFOPLIST_FILE = SwiftRace/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miha.SwiftRacer.SwiftRace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11FE5E2B1DCD470F00DD2A24 /* Build configuration list for PBXProject "SwiftRacer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE5E561DCD471000DD2A24 /* Debug */,
+				11FE5E571DCD471000DD2A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11FE5E581DCD471000DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRacer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE5E591DCD471000DD2A24 /* Debug */,
+				11FE5E5A1DCD471000DD2A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11FE5E5B1DCD471000DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRacerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE5E5C1DCD471000DD2A24 /* Debug */,
+				11FE5E5D1DCD471000DD2A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11FE5E5E1DCD471000DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRacerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE5E5F1DCD471000DD2A24 /* Debug */,
+				11FE5E601DCD471000DD2A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11FE5E751DCD471D00DD2A24 /* Build configuration list for PBXNativeTarget "SwiftRace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE5E761DCD471D00DD2A24 /* Debug */,
+				11FE5E771DCD471D00DD2A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11FE5E281DCD470F00DD2A24 /* Project object */;
+}
