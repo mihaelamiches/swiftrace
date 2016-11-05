@@ -12,7 +12,7 @@ import HealthKit
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    func queryRaceData(completion: @escaping ((RaceData) -> Void)) {
+    func queryLocalRaceData(completion: @escaping ((RaceData) -> Void)) {
         var totalDistance = 0.0
         let queryGroup = DispatchGroup()
         
@@ -49,16 +49,16 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
-        queryRaceData { race in
-            self.embedRaceViewController(withRace: race)
+        queryLocalRaceData { race in
+            self.embedRaceViewController(for: conversation, withRace: race)
         }
     }
     
-    func embedRaceViewController(withRace race: RaceData) {
-        guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceTableViewController.storyboardId) as? RaceTableViewController else { fatalError("Unable to instantiate a RaceTableViewController from the storyboard") }
+    func embedRaceViewController(for conversation: MSConversation, withRace race: RaceData) {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceViewController.storyboardId) as? RaceViewController else { fatalError("Unable to instantiate a RaceViewController from the storyboard") }
         
-        print(race)
-        
+
+        controller.raceData = race
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
             child.view.removeFromSuperview()

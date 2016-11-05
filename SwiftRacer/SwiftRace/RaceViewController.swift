@@ -8,6 +8,7 @@
 
 import UIKit
 
-class RaceTableViewController: UITableViewController {
-    static let storyboardId = "RaceTableViewController"
+class RaceViewController: UIViewController {
+    static let storyboardId = "RaceViewController"
+    var raceData: RaceData?
 }
