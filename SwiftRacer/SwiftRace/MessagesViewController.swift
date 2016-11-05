@@ -12,6 +12,26 @@ import HealthKit
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var stickerView: MSStickerView!
+    
+    @IBAction func didPressChallengeButton(_ sender: UIButton) {
+        queryLocalRaceData { raceData in
+            self.join(with: raceData)
+        }
+    }
+    
+    func join(with raceData: RaceData) {
+        let cache = RaceStickerCache.cache
+        self.stickerView.sticker = cache.placeholderSticker
+        cache.sticker(for: raceData) { sticker in
+            OperationQueue.main.addOperation {
+                guard self.isViewLoaded else { return }
+                
+                self.stickerView.sticker = sticker
+            }
+        }
+    }
+    
     func queryLocalRaceData(completion: @escaping ((RaceData) -> Void)) {
         var totalDistance = 0.0
         let queryGroup = DispatchGroup()
@@ -45,16 +65,18 @@ class MessagesViewController: MSMessagesAppViewController {
             completion(racer)
         })
     }
-    
+
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
-        queryLocalRaceData { race in
-            self.embedRaceViewController(for: conversation, withRace: race)
+        if let _ = conversation.selectedMessage {
+            queryLocalRaceData { race in
+                self.embedRaceViewController(for: conversation, withRace: race)
+            }
         }
     }
     
-    func embedRaceViewController(for conversation: MSConversation, withRace race: RaceData) {
+    func embedRaceViewController(for conversation: MSConversation?, withRace race: RaceData) {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceViewController.storyboardId) as? RaceViewController else { fatalError("Unable to instantiate a RaceViewController from the storyboard") }
         
 

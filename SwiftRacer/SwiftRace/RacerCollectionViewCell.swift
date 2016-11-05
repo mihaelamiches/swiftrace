@@ -8,6 +8,6 @@
 
 import UIKit
 
-class RacerTableViewCell: UITableViewCell {
-    
+class RacerCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var progressView: RaceProgressView!
 }

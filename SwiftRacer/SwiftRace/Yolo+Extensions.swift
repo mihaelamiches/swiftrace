@@ -108,8 +108,7 @@ extension RaceData {
 
 extension UILabel {
     static func carLabel(withFontSize: CGFloat = 70) -> UILabel {
-        let carLabel = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 100, height: 100)))
-        //carLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/2)
+        let carLabel = UILabel(frame: .zero)
         carLabel.backgroundColor = .clear
         carLabel.text = "🏎"
         carLabel.font = UIFont.systemFont(ofSize: withFontSize)

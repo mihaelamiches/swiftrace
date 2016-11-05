@@ -13,16 +13,15 @@ import UIKit
     
     override func draw(_ rect: CGRect) {
         let carLabel = UILabel.carLabel()
-        let barWidth = (percentCompleted * (rect.width - carLabel.bounds.width))/100
-        let barSize = CGSize(width: barWidth, height: rect.height)
-        let progressColors: [UIColor] = [.red, .yellow]
-        
-        carLabel.frame.origin = CGPoint(x: rect.width - (carLabel.bounds.width + barWidth), y: -carLabel.frame.height/2)
-        
-        let path = UIBezierPath(rect: CGRect(origin: CGPoint(x: frame.width - barSize.width, y: 0), size: barSize))
+        let progressColors: [UIColor] = [.red,.red, .yellow]
+        let padDelta = CGFloat(10)
+        let maxProgressDelta = padDelta + carLabel.bounds.width
+        let progressDelta = rect.width - ((rect.width - maxProgressDelta) * percentCompleted)/100
+    
+        let path = UIBezierPath(rect: rect.divided(atDistance: progressDelta, from: .minXEdge).remainder)
         let progressLayer = CAShapeLayer()
         progressLayer.path = path.cgPath
-
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = rect
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
@@ -32,6 +31,9 @@ import UIKit
         
         backgroundColor = .clear
         layer.addSublayer(gradientLayer)
+        
         addSubview(carLabel)
+        carLabel.frame.origin = rect.divided(atDistance: progressDelta - carLabel.bounds.width + 7, from: .minXEdge).remainder.origin
+        carLabel.frame.origin.y = -carLabel.bounds.height/2
     }
 }
