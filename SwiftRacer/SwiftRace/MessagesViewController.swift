@@ -10,10 +10,18 @@ import UIKit
 import Messages
 import HealthKit
 
-class MessagesViewController: MSMessagesAppViewController {
+class MessagesViewController: MSMessagesAppViewController, RaceStickerViewControllerDelegate {
     @IBAction func didPressChallengeButton(_ sender: UIButton) {
         queryLocalRaceData { raceData in
             self.startRace(with: raceData)
+            self.requestPresentationStyle(.compact)
+        }
+    }
+    
+    func didPressJoin(race: Race) {
+        queryLocalRaceData { raceData in
+            self.join(race, with: raceData)
+            self.removeChildViewControllers()
             self.requestPresentationStyle(.compact)
         }
     }
@@ -71,6 +79,7 @@ class MessagesViewController: MSMessagesAppViewController {
         return message
     }
     
+    //MARK: - Health Data
     func requestAuthorisation(whenGranted: @escaping ((Void) -> Void)) {
         let shareTypes: [HKSampleType] = [HKQuantityType.quantityType(forIdentifier: .distanceCycling)!,
                                           HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!,
@@ -158,15 +167,4 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
 }
-
-extension MessagesViewController: RaceStickerViewControllerDelegate {
-    func didPressJoin(race: Race) {
-        queryLocalRaceData { raceData in
-            self.join(race, with: raceData)
-            self.removeChildViewControllers()
-            self.requestPresentationStyle(.compact)
-        }
-    }
-}
-
 
