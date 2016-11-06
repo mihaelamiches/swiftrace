@@ -27,13 +27,13 @@ class RaceStickerViewController: UIViewController {
         guard let race = race else { fatalError("no race") }
         delegate?.didPressJoin(race: race)
     }
-
+    
     override func viewDidLoad() {
         guard let race = race else { fatalError("no race") }
         super.viewDidLoad()
         
         joinButton.isHidden = !canJoin
-         RaceStickerCache.cache.sticker(for: race) { sticker in
+        RaceStickerCache.cache.sticker(for: race) { sticker in
             OperationQueue.main.addOperation {
                 guard self.isViewLoaded else { return }
                 

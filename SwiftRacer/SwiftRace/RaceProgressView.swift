@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable class RaceProgressView: UIView {
-    @IBInspectable var percentCompleted: CGFloat = 50.0
+    @IBInspectable var percentCompleted: CGFloat = 100.0
     
     override func draw(_ rect: CGRect) {
         let carLabel = UILabel.carLabel()

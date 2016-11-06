@@ -17,7 +17,7 @@ extension Race {
          The amount of padding to apply to a sticker when drawn with an opaque
          background.
          */
-        static let opaquePadding = CGSize(width: 60.0, height: 10.0)
+        static let opaquePadding = CGSize(width: 60.0, height: 50.0)
     }
     
     func renderSticker(opaque: Bool) -> UIImage? {
@@ -25,23 +25,23 @@ extension Race {
         
         // Determine the size to draw as a sticker.
         let outputSize: CGSize
-        let iceCreamSize: CGSize
+        let raceSize: CGSize
         
         if opaque {
-            // Scale the ice cream image to fit in the center of the sticker.
+            // Scale the image to fit in the center of the sticker.
             let scale = min((StickerProperties.size.width - StickerProperties.opaquePadding.width) / partsImage.size.height,
                             (StickerProperties.size.height - StickerProperties.opaquePadding.height) / partsImage.size.width)
-            iceCreamSize = CGSize(width: partsImage.size.width * scale, height: partsImage.size.height * scale)
+            raceSize = CGSize(width: partsImage.size.width * scale, height: partsImage.size.height * scale)
             outputSize = StickerProperties.size
         }
         else {
-            // Scale the ice cream to fit it's height into the sticker.
+            // Scale the image to fit it's height into the sticker.
             let scale = StickerProperties.size.width / partsImage.size.height
-            iceCreamSize = CGSize(width: partsImage.size.width * scale, height: partsImage.size.height * scale)
-            outputSize = iceCreamSize
+            raceSize = CGSize(width: partsImage.size.width * scale, height: partsImage.size.height * scale)
+            outputSize = raceSize
         }
         
-        // Scale the ice cream image to the correct size.
+        // Scale the image to the correct size.
         let renderer = UIGraphicsImageRenderer(size: outputSize)
         let image = renderer.image { context in
             let backgroundColor: UIColor
@@ -60,9 +60,9 @@ extension Race {
             
             // Draw the scaled composited image.
             var drawRect = CGRect.zero
-            drawRect.size = iceCreamSize
-            drawRect.origin.x = (outputSize.width / 2.0) - (iceCreamSize.width / 2.0)
-            drawRect.origin.y = (outputSize.height / 2.0) - (iceCreamSize.height / 2.0)
+            drawRect.size = raceSize
+            drawRect.origin.x = (outputSize.width / 2.0) - (raceSize.width / 2.0)
+            drawRect.origin.y = (outputSize.height / 2.0) - (raceSize.height / 2.0)
             
             partsImage.draw(in: drawRect)
         }
@@ -77,7 +77,7 @@ extension Race {
         
         guard !partImages.isEmpty else { return nil }
         
-        // Calculate the size of the composited ice cream parts image.
+        // Calculate the size of the composited racers.
         var outputImageSize = CGSize.zero
         outputImageSize.width = partImages.reduce(0) { largestWidth, image in
             return max(largestWidth, image.size.width)

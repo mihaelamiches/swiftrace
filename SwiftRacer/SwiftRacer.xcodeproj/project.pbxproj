@@ -10,12 +10,10 @@
 		11B799881DCD47AA000AA70B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B799871DCD47AA000AA70B /* HealthKit.framework */; };
 		11B7998B1DCD47BF000AA70B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B799871DCD47AA000AA70B /* HealthKit.framework */; };
 		11B7998D1DCD48F9000AA70B /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7998C1DCD48F9000AA70B /* Race.swift */; };
-		11B7998F1DCD492B000AA70B /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7998E1DCD492B000AA70B /* RaceViewController.swift */; };
-		11B799921DCD4C59000AA70B /* RacerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B799911DCD4C59000AA70B /* RacerCollectionViewCell.swift */; };
-		11B799941DCD623E000AA70B /* RaceStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B799931DCD623E000AA70B /* RaceStickerViewController.swift */; };
-		11B799961DCD62F0000AA70B /* RaceStickerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B799951DCD62F0000AA70B /* RaceStickerCache.swift */; };
 		11B7999A1DCD64A8000AA70B /* Yolo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B799991DCD64A8000AA70B /* Yolo+Extensions.swift */; };
 		11B7999E1DCDDC86000AA70B /* RaceProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7999D1DCDDC86000AA70B /* RaceProgressView.swift */; };
+		11E26DA01DCF68BC00924FBA /* RaceStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E26D9F1DCF68BC00924FBA /* RaceStickerViewController.swift */; };
+		11E26DA21DCF69D900924FBA /* RaceStickerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E26DA11DCF69D900924FBA /* RaceStickerCache.swift */; };
 		11FE5E341DCD471000DD2A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E331DCD471000DD2A24 /* AppDelegate.swift */; };
 		11FE5E361DCD471000DD2A24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE5E351DCD471000DD2A24 /* ViewController.swift */; };
 		11FE5E391DCD471000DD2A24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FE5E371DCD471000DD2A24 /* Main.storyboard */; };
@@ -73,12 +71,10 @@
 		11B799891DCD47AA000AA70B /* SwiftRace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftRace.entitlements; sourceTree = "<group>"; };
 		11B7998A1DCD47BF000AA70B /* SwiftRacer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftRacer.entitlements; sourceTree = "<group>"; };
 		11B7998C1DCD48F9000AA70B /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
-		11B7998E1DCD492B000AA70B /* RaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
-		11B799911DCD4C59000AA70B /* RacerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacerCollectionViewCell.swift; sourceTree = "<group>"; };
-		11B799931DCD623E000AA70B /* RaceStickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceStickerViewController.swift; sourceTree = "<group>"; };
-		11B799951DCD62F0000AA70B /* RaceStickerCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceStickerCache.swift; sourceTree = "<group>"; };
 		11B799991DCD64A8000AA70B /* Yolo+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Yolo+Extensions.swift"; sourceTree = "<group>"; };
 		11B7999D1DCDDC86000AA70B /* RaceProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceProgressView.swift; sourceTree = "<group>"; };
+		11E26D9F1DCF68BC00924FBA /* RaceStickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceStickerViewController.swift; sourceTree = "<group>"; };
+		11E26DA11DCF69D900924FBA /* RaceStickerCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceStickerCache.swift; sourceTree = "<group>"; };
 		11FE5E301DCD471000DD2A24 /* SwiftRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11FE5E331DCD471000DD2A24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11FE5E351DCD471000DD2A24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -215,11 +211,9 @@
 				11FE5E6C1DCD471D00DD2A24 /* MainInterface.storyboard */,
 				11FE5E6A1DCD471D00DD2A24 /* MessagesViewController.swift */,
 				11B7998C1DCD48F9000AA70B /* Race.swift */,
-				11B799911DCD4C59000AA70B /* RacerCollectionViewCell.swift */,
-				11B799951DCD62F0000AA70B /* RaceStickerCache.swift */,
-				11B799931DCD623E000AA70B /* RaceStickerViewController.swift */,
 				11B7999D1DCDDC86000AA70B /* RaceProgressView.swift */,
-				11B7998E1DCD492B000AA70B /* RaceViewController.swift */,
+				11E26DA11DCF69D900924FBA /* RaceStickerCache.swift */,
+				11E26D9F1DCF68BC00924FBA /* RaceStickerViewController.swift */,
 				11B799991DCD64A8000AA70B /* Yolo+Extensions.swift */,
 				11B799981DCD63D8000AA70B /* Supporting Files */,
 			);
@@ -433,13 +427,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				11B7998D1DCD48F9000AA70B /* Race.swift in Sources */,
-				11B7998F1DCD492B000AA70B /* RaceViewController.swift in Sources */,
 				11B7999E1DCDDC86000AA70B /* RaceProgressView.swift in Sources */,
 				11FE5E6B1DCD471D00DD2A24 /* MessagesViewController.swift in Sources */,
 				11B7999A1DCD64A8000AA70B /* Yolo+Extensions.swift in Sources */,
-				11B799941DCD623E000AA70B /* RaceStickerViewController.swift in Sources */,
-				11B799921DCD4C59000AA70B /* RacerCollectionViewCell.swift in Sources */,
-				11B799961DCD62F0000AA70B /* RaceStickerCache.swift in Sources */,
+				11E26DA21DCF69D900924FBA /* RaceStickerCache.swift in Sources */,
+				11E26DA01DCF68BC00924FBA /* RaceStickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
