@@ -136,3 +136,9 @@ extension UIImage {
         }
     }
 }
+
+extension Double {
+    var distanceString: String {
+        return LengthFormatter().string(fromMeters: self)
+    }
+}

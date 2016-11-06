@@ -24,7 +24,7 @@ class MessagesViewController: MSMessagesAppViewController {
     func startRace(with raceData: RaceData) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         let race = Race(participants: [conversation.localParticipantIdentifier.uuidString : raceData])
-        let message = composeMessage(with: race, caption: "$\(conversation.localParticipantIdentifier) set a \(raceData.totalDistance) challenge.", session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: race, caption: "$\(conversation.localParticipantIdentifier) set a \(raceData.totalDistance.distanceString) challenge.", session: conversation.selectedMessage?.session)
         conversation.insert(message) { error in
             guard error == nil else {
                 return print(error!)
@@ -43,9 +43,9 @@ class MessagesViewController: MSMessagesAppViewController {
         let leaderNames = currentLeaders.flatMap { "$\($0.key)" }.joined(separator: " and ")
         
         let caption: String
-        if raceData.totalDistance > race.maxDistance() {
-            caption = "$\(conversation.localParticipantIdentifier) takes the lead  with \(raceData.totalDistance)"
-        } else if raceData.totalDistance == race.maxDistance() {
+        if raceData.totalDistance.rounded() > race.maxDistance().rounded() {
+            caption = "$\(conversation.localParticipantIdentifier) takes the lead  with \(raceData.totalDistance.distanceString)"
+        } else if raceData.totalDistance.rounded() == race.maxDistance().rounded() {
             caption = "It's a tie"
         } else {
             caption = "\(leaderNames)" + (currentLeaders.count > 1 ? " lead " : " leads ") + " the race"
