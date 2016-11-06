@@ -9,8 +9,7 @@
 import UIKit
 
 extension Race {
-    
-    private struct StickerProperties {
+    struct StickerProperties {
         /// The desired size of an racer sticker image.
         static let size = CGSize(width: 300.0, height: 300.0)
         
@@ -115,5 +114,22 @@ extension UILabel {
         carLabel.font = UIFont.systemFont(ofSize: withFontSize)
         carLabel.sizeToFit()
         return carLabel
+    }
+}
+
+extension UIImage {
+    convenience init?(view: UIView) {
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
+        guard let currentContext = UIGraphicsGetCurrentContext() else { return nil }
+        view.layer.render(in: currentContext)
+
+        if let image = UIGraphicsGetImageFromCurrentImageContext()?.cgImage {
+            self.init(cgImage: image)
+        } else {
+            return nil
+        }
     }
 }

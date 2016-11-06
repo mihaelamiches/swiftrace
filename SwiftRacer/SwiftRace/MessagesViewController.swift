@@ -16,14 +16,29 @@ class MessagesViewController: MSMessagesAppViewController {
     
     @IBAction func didPressChallengeButton(_ sender: UIButton) {
         queryLocalRaceData { raceData in
-            self.join(with: raceData)
+            self.startRace(with: raceData)
+            self.requestPresentationStyle(.compact)
         }
     }
     
-    func join(with raceData: RaceData) {
+    func startRace(with raceData: RaceData) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         let race = Race(participants: [conversation.localParticipantIdentifier.uuidString : raceData])
-        let message = composeMessage(with: race, caption: "omg new race", session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: race, caption: "$\(conversation.localParticipantIdentifier) takes the lead with \(raceData.totalDistance)", session: conversation.selectedMessage?.session)
+        conversation.insert(message) { error in
+            guard error == nil else {
+                return print(error!)
+            }
+        }
+    }
+    
+    func join(_ race: Race, with raceData: RaceData) {
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        
+        var participants = race.participants
+        participants[conversation.localParticipantIdentifier.uuidString ] = raceData
+        
+        let message = composeMessage(with: Race(participants: participants), caption: "$\(conversation.localParticipantIdentifier) takes the lead with \(raceData.totalDistance)", session: conversation.selectedMessage?.session)
         conversation.insert(message) { error in
             guard error == nil else {
                 return print(error!)
@@ -36,7 +51,7 @@ class MessagesViewController: MSMessagesAppViewController {
         components.queryItems = race.queryItems
         
         let layout = MSMessageTemplateLayout()
-        layout.image = race.renderSticker(opaque: true)
+        layout.image = race.renderSticker(opaque: false)
         layout.caption = caption
         
         let message = MSMessage(session: session ?? MSSession())
@@ -83,25 +98,21 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
-        if let _ = conversation.selectedMessage {
-            queryLocalRaceData { race in
-                self.embedRaceViewController(for: conversation, withRace: race)
-            }
+        if let message = conversation.selectedMessage, let race = Race(message: message) {
+            let canJoin = (race.participants.filter { $0.key == conversation.localParticipantIdentifier.uuidString }.count == 0)
+            self.embedStickerViewController(withRace: race, canJoin: canJoin)
         }
     }
     
-    func embedRaceViewController(for conversation: MSConversation?, withRace race: RaceData) {
-        guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceViewController.storyboardId) as? RaceViewController else { fatalError("Unable to instantiate a RaceViewController from the storyboard") }
-        guard let conversation = activeConversation else { return }
+    func embedStickerViewController(withRace race: Race, canJoin: Bool) {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceStickerViewController.storyboardId) as? RaceStickerViewController else { fatalError("Unable to instantiate a RaceStickerViewController from the storyboard") }
 
-        controller.racers = [conversation.localParticipantIdentifier.uuidString :race]
-        for child in childViewControllers {
-            child.willMove(toParentViewController: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParentViewController()
-        }
+        controller.race = race
+        controller.canJoin = canJoin
+        controller.delegate = self
         
-        // Embed the new controller.
+        removeChildViewControllers()
+        
         addChildViewController(controller)
         
         controller.view.frame = view.bounds
@@ -116,42 +127,21 @@ class MessagesViewController: MSMessagesAppViewController {
         controller.didMove(toParentViewController: self)
     }
     
-    override func didResignActive(with conversation: MSConversation) {
-        // Called when the extension is about to move from the active to inactive state.
-        // This will happen when the user dissmises the extension, changes to a different
-        // conversation or quits Messages.
-        
-        // Use this method to release shared resources, save user data, invalidate timers,
-        // and store enough state information to restore your extension to its current state
-        // in case it is terminated later.
+    func removeChildViewControllers() {
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
     }
-    
-    override func didReceive(_ message: MSMessage, conversation: MSConversation) {
-        // Called when a message arrives that was generated by another instance of this
-        // extension on a remote device.
-        
-        // Use this method to trigger UI updates in response to the message.
-    }
-    
-    override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
-        // Called when the user taps the send button.
-    }
-    
-    override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
-        // Called when the user deletes the message without sending it.
-        
-        // Use this to clean up state related to the deleted message.
-    }
-    
-    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called before the extension transitions to a new presentation style.
-        
-        // Use this method to prepare for the change in presentation style.
-    }
-    
-    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called after the extension transitions to a new presentation style.
-        
-        // Use this method to finalize any behaviors associated with the change in presentation style.
+}
+
+extension MessagesViewController: RaceStickerViewControllerDelegate {
+    func didPressJoin(race: Race) {
+        queryLocalRaceData { raceData in
+            self.join(race, with: raceData)
+            self.removeChildViewControllers()
+            self.requestPresentationStyle(.compact)
+        }
     }
 }

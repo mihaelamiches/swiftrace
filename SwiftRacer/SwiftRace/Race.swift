@@ -13,7 +13,8 @@ struct RaceData {
     let turboValue: Double?
     
     func stickerImage() -> UIImage? {
-        return nil
+        let raceProgressView = RaceProgressView(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 35)))
+        return UIImage(view: raceProgressView)
     }
 }
 
@@ -25,6 +26,7 @@ extension Race {
     var queryItems: [URLQueryItem] {
         var items = [URLQueryItem]()
         
+        items.append(URLQueryItem(name: "count", value: "\(participants.count)"))
         var racerIndex = 0
         participants.forEach { racer in
             items.append(URLQueryItem(name: "racer_\(racerIndex)", value: racer.key))
@@ -33,35 +35,36 @@ extension Race {
             
             racerIndex += 1
         }
-
+        
         return items
     }
     
     init?(queryItems: [URLQueryItem]) {
+        guard let count = queryItems.filter({$0.name == "count"}).first?.value, let participantCount = Int(count)
+            else { return nil }
+        
         var participants: [String: RaceData] = [:]
-
-        var racerIndex = 0
-        for queryItem in queryItems {
+        
+        for racerIndex in 0..<participantCount {
             var participant: String?
             var distance: Double?
             var turbo: Double?
             
-            switch queryItem.name {
-            case "racer_\(racerIndex)":
-                participant = queryItem.value
-            case "distance_\(racerIndex)":
-                distance = Double(queryItem.value ?? "")
-            case "turbo_\(racerIndex)":
-                turbo = Double(queryItem.value ?? "")
-            default:
-                break
+            if let value = queryItems.filter({$0.name == "racer_\(racerIndex)" }).first?.value {
+                participant = value
+            }
+            
+            if let value = queryItems.filter({$0.name == "distance_\(racerIndex)" }).first?.value {
+                distance = Double(value)
+            }
+            
+            if let value = queryItems.filter({$0.name == "turbo_\(racerIndex)" }).first?.value {
+                turbo = Double(value)
             }
             
             if let participant = participant, let distance = distance {
                 participants[participant] = RaceData(totalDistance: distance, turboValue: turbo)
             }
-            
-            racerIndex += 1
         }
         
         self.participants = participants
@@ -72,7 +75,7 @@ extension Race {
     init?(message: MSMessage?) {
         guard let messageURL = message?.url else { return nil }
         guard let urlComponents = NSURLComponents(url: messageURL, resolvingAgainstBaseURL: false), let queryItems = urlComponents.queryItems else { return nil }
-
+        
         self.init(queryItems: queryItems)
     }
 }

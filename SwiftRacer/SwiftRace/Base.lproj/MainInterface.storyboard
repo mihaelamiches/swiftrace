@@ -10,6 +10,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Race Sticker View Controller-->
+        <scene sceneID="mXV-np-Vpz">
+            <objects>
+                <viewController storyboardIdentifier="RaceStickerViewController" id="o3l-cs-4Lt" customClass="RaceStickerViewController" customModule="SwiftRace" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9hQ-K5-3Av"/>
+                        <viewControllerLayoutGuide type="bottom" id="XTC-dY-ldS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d9l-fX-g7h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeA-we-twv" customClass="MSStickerView">
+                                <rect key="frame" x="16" y="66" width="343" height="488"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMn-L7-sPJ">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <state key="normal" title="Join">
+                                    <color key="titleColor" red="0.86666666670000003" green="0.36862745099999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressJoinButton:" destination="o3l-cs-4Lt" eventType="touchUpInside" id="741-iy-quT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XTC-dY-ldS" firstAttribute="top" secondItem="HeA-we-twv" secondAttribute="bottom" constant="113" id="AdS-Sw-K3R"/>
+                            <constraint firstItem="XTC-dY-ldS" firstAttribute="top" secondItem="IMn-L7-sPJ" secondAttribute="bottom" constant="20" id="Fe6-C7-SK1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="HeA-we-twv" secondAttribute="leading" id="ZoE-fr-LMm"/>
+                            <constraint firstItem="IMn-L7-sPJ" firstAttribute="centerX" secondItem="d9l-fX-g7h" secondAttribute="centerX" id="aAo-Yx-492"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HeA-we-twv" secondAttribute="trailing" id="fO6-95-NxL"/>
+                            <constraint firstItem="HeA-we-twv" firstAttribute="top" secondItem="9hQ-K5-3Av" secondAttribute="bottom" constant="46" id="uve-3q-xye"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="joinButton" destination="IMn-L7-sPJ" id="jqs-2h-PtK"/>
+                        <outlet property="stickerView" destination="HeA-we-twv" id="xN2-3T-Dxk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="88C-Fo-Onk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-871.20000000000005" y="-36.431784107946029"/>
+        </scene>
         <!--Race View Controller-->
         <scene sceneID="Ped-5l-2e5">
             <objects>
@@ -63,7 +108,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kio-I7-DUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-489" y="-2"/>
+            <point key="canvasLocation" x="-47" y="16"/>
         </scene>
         <!--Messages View Controller-->
         <scene sceneID="7MM-of-jgj">
@@ -105,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1214.4000000000001" y="-64.767616191904054"/>
+            <point key="canvasLocation" x="-1582" y="-3"/>
         </scene>
     </scenes>
 </document>

@@ -17,22 +17,6 @@ class RaceStickerCache {
     
     private let queue = OperationQueue()
     
-    /**
-     An `MSSticker` that can be used as a placeholder while a real ice cream
-     sticker is being fetched from the cache.
-     */
-    let placeholderSticker: MSSticker = {
-        let bundle = Bundle.main
-        guard let placeholderURL = bundle.url(forResource: "sticker_placeholder", withExtension: "png") else { fatalError("Unable to find placeholder sticker image") }
-        
-        do {
-            return try MSSticker(contentsOfFileURL: placeholderURL, localizedDescription: "")
-        }
-        catch {
-            fatalError("Failed to create placeholder sticker: \(error)")
-        }
-    }()
-    
     // MARK: Initialization
     
     private init() {
@@ -63,7 +47,7 @@ class RaceStickerCache {
     
     func sticker(for race: Race, completion: @escaping (_ sticker: MSSticker) -> Void) {
         // Determine the URL for the sticker.
-        let fileName = "" + ".png"
+        let fileName = "race" + ".png"
         let url = cacheURL.appendingPathComponent(fileName)
         
         // Create an operation to process the request.

@@ -29,7 +29,7 @@ import UIKit
         gradientLayer.colors = progressColors.map { $0.cgColor }
         gradientLayer.mask = progressLayer
         
-        backgroundColor = .clear
+        backgroundColor = .white
         layer.addSublayer(gradientLayer)
         
         addSubview(carLabel)

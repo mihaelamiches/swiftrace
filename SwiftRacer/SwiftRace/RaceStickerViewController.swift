@@ -9,24 +9,31 @@
 import UIKit
 import Messages
 
+protocol RaceStickerViewControllerDelegate {
+    func didPressJoin(race: Race)
+}
+
 class RaceStickerViewController: UIViewController {
     static let storyboardId = "RaceStickerViewController"
     
     var race: Race?
+    var canJoin: Bool = false
+    var delegate: RaceStickerViewControllerDelegate?
     
+    @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var stickerView: MSStickerView!
     
-    // MARK: UIViewController
-    
+    @IBAction func didPressJoinButton(_ sender: UIButton) {
+        guard let race = race else { fatalError("no race") }
+        delegate?.didPressJoin(race: race)
+    }
+
     override func viewDidLoad() {
         guard let race = race else { fatalError("no race") }
         super.viewDidLoad()
         
-        // Update the sticker view
-        let cache = RaceStickerCache.cache
-        
-        stickerView.sticker = cache.placeholderSticker
-        cache.sticker(for: race) { sticker in
+        joinButton.isHidden = !canJoin
+         RaceStickerCache.cache.sticker(for: race) { sticker in
             OperationQueue.main.addOperation {
                 guard self.isViewLoaded else { return }
                 
