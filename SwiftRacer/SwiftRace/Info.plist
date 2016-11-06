@@ -33,5 +33,7 @@
 	<array>
 		<string>healthkit</string>
 	</array>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Not updating</string>
 </dict>
 </plist>
