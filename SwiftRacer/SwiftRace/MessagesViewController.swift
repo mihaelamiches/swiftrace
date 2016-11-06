@@ -38,7 +38,17 @@ class MessagesViewController: MSMessagesAppViewController {
         var participants = race.participants
         participants[conversation.localParticipantIdentifier.uuidString ] = raceData
         
-        let message = composeMessage(with: Race(participants: participants), caption: "$\(conversation.localParticipantIdentifier) joined with \(raceData.totalDistance)", session: conversation.selectedMessage?.session)
+        let updatedRace = Race(participants: participants)
+        
+        let caption: String
+        
+        if updatedRace.maxDistance() > race.maxDistance() {
+            caption = "$\(conversation.localParticipantIdentifier) takes the lead  with \(raceData.totalDistance)"
+        } else {
+            caption = "Leader remains ahead"
+        }
+        
+        let message = composeMessage(with: Race(participants: participants), caption: caption, session: conversation.selectedMessage?.session)
         conversation.insert(message) { error in
             guard error == nil else {
                 return print(error!)

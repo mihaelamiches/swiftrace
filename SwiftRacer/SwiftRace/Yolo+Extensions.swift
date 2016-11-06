@@ -72,11 +72,10 @@ extension Race {
     
     /// Composites the racers into a single `UIImage`.
     private func renderRaceSticker() -> UIImage? {
-        
-        let partImages = participants.flatMap { $0.value.stickerImage() }
-        
-        guard !partImages.isEmpty else { return nil }
-        
+        guard !participants.isEmpty else { return nil }
+
+        let partImages = participants.flatMap { $0.value.stickerImage(percentCompleted: CGFloat(($0.value.totalDistance * 100.0)/maxDistance())) }
+ 
         // Calculate the size of the composited racers.
         var outputImageSize = CGSize.zero
         outputImageSize.width = partImages.reduce(0) { largestWidth, image in
@@ -103,6 +102,10 @@ extension Race {
         }
         
         return image
+    }
+    
+    func maxDistance() -> Double {
+        return participants.values.max { $0.0.totalDistance < $0.1.totalDistance }?.totalDistance ?? 0
     }
 }
 

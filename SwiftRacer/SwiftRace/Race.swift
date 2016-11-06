@@ -12,8 +12,9 @@ struct RaceData {
     let totalDistance: Double
     let turboValue: Double?
     
-    func stickerImage() -> UIImage? {
+    func stickerImage(percentCompleted: CGFloat) -> UIImage? {
         let raceProgressView = RaceProgressView(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 35)))
+        raceProgressView.percentCompleted = percentCompleted
         return UIImage(view: raceProgressView)
     }
 }
