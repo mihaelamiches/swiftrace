@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
         HKHealthStore().requestAuthorization(toShare: nil, read: Set(shareTypes)) { (success, error) -> Void in
         }
     }

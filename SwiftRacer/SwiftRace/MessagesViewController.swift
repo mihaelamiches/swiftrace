@@ -11,9 +11,6 @@ import Messages
 import HealthKit
 
 class MessagesViewController: MSMessagesAppViewController {
-    
-    @IBOutlet weak var stickerView: MSStickerView!
-    
     @IBAction func didPressChallengeButton(_ sender: UIButton) {
         queryLocalRaceData { raceData in
             self.startRace(with: raceData)
@@ -39,7 +36,7 @@ class MessagesViewController: MSMessagesAppViewController {
         participants[conversation.localParticipantIdentifier.uuidString ] = raceData
         
         
-        let currentLeaders = race.participants.filter { $0.value.totalDistance == race.maxDistance() }
+        let currentLeaders = race.participants.filter { $0.value.totalDistance.rounded() == race.maxDistance().rounded() }
         let leaderNames = currentLeaders.flatMap { "$\($0.key)" }.joined(separator: " and ")
         
         let caption: String
@@ -123,7 +120,6 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     // MARK: - Conversation Handling
-    
     override func willBecomeActive(with conversation: MSConversation) {
         if let message = conversation.selectedMessage, let race = Race(message: message) {
             let canJoin = (race.participants.filter { $0.key == conversation.localParticipantIdentifier.uuidString }.count == 0)
