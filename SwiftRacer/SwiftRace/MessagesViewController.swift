@@ -24,7 +24,7 @@ class MessagesViewController: MSMessagesAppViewController {
     func startRace(with raceData: RaceData) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         let race = Race(participants: [conversation.localParticipantIdentifier.uuidString : raceData])
-        let message = composeMessage(with: race, caption: "$\(conversation.localParticipantIdentifier) takes the lead with \(raceData.totalDistance)", session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: race, caption: "$\(conversation.localParticipantIdentifier) set a \(raceData.totalDistance) challenge.", session: conversation.selectedMessage?.session)
         conversation.insert(message) { error in
             guard error == nil else {
                 return print(error!)
@@ -38,14 +38,17 @@ class MessagesViewController: MSMessagesAppViewController {
         var participants = race.participants
         participants[conversation.localParticipantIdentifier.uuidString ] = raceData
         
-        let updatedRace = Race(participants: participants)
+        
+        let currentLeaders = race.participants.filter { $0.value.totalDistance == race.maxDistance() }
+        let leaderNames = currentLeaders.flatMap { "$\($0.key)" }.joined(separator: " and ")
         
         let caption: String
-        
-        if updatedRace.maxDistance() > race.maxDistance() {
+        if raceData.totalDistance > race.maxDistance() {
             caption = "$\(conversation.localParticipantIdentifier) takes the lead  with \(raceData.totalDistance)"
+        } else if raceData.totalDistance == race.maxDistance() {
+            caption = "It's a tie"
         } else {
-            caption = "Leader remains ahead"
+            caption = "\(leaderNames)" + (currentLeaders.count > 1 ? " lead " : " leads ") + " the race"
         }
         
         let message = composeMessage(with: Race(participants: participants), caption: caption, session: conversation.selectedMessage?.session)
@@ -71,6 +74,18 @@ class MessagesViewController: MSMessagesAppViewController {
         return message
     }
     
+    func requestAuthorisation(whenGranted: @escaping ((Void) -> Void)) {
+        let shareTypes: [HKSampleType] = [HKQuantityType.quantityType(forIdentifier: .distanceCycling)!,
+                                          HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!,
+                                          HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                                          HKQuantityType.quantityType(forIdentifier: .distanceWheelchair)!]
+        
+        HKHealthStore().requestAuthorization(toShare: nil, read: Set(shareTypes)) { (success, error) -> Void in
+            guard success, error != nil else { return }
+            whenGranted()
+        }
+    }
+    
     func queryLocalRaceData(completion: @escaping ((RaceData) -> Void)) {
         var totalDistance = 0.0
         let queryGroup = DispatchGroup()
@@ -87,24 +102,26 @@ class MessagesViewController: MSMessagesAppViewController {
             })
         }
         
-        queryGroup.enter()
-        HKHealthStore().execute(query(.distanceCycling))
-        
-        queryGroup.enter()
-        HKHealthStore().execute(query(.distanceSwimming))
-        
-        queryGroup.enter()
-        HKHealthStore().execute(query(.distanceWalkingRunning))
-        
-        queryGroup.enter()
-        HKHealthStore().execute(query(.distanceWheelchair))
-        
-        queryGroup.notify(queue: DispatchQueue.main, execute: {
-            let racer = RaceData(totalDistance: totalDistance, turboValue: nil)
-            completion(racer)
-        })
+        requestAuthorisation {
+            queryGroup.enter()
+            HKHealthStore().execute(query(.distanceCycling))
+            
+            queryGroup.enter()
+            HKHealthStore().execute(query(.distanceSwimming))
+            
+            queryGroup.enter()
+            HKHealthStore().execute(query(.distanceWalkingRunning))
+            
+            queryGroup.enter()
+            HKHealthStore().execute(query(.distanceWheelchair))
+            
+            queryGroup.notify(queue: DispatchQueue.main, execute: {
+                let racer = RaceData(totalDistance: totalDistance, turboValue: nil)
+                completion(racer)
+            })
+        }
     }
-
+    
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
@@ -116,7 +133,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     func embedStickerViewController(withRace race: Race, canJoin: Bool) {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceStickerViewController.storyboardId) as? RaceStickerViewController else { fatalError("Unable to instantiate a RaceStickerViewController from the storyboard") }
-
+        
         controller.race = race
         controller.canJoin = canJoin
         controller.delegate = self
@@ -155,3 +172,5 @@ extension MessagesViewController: RaceStickerViewControllerDelegate {
         }
     }
 }
+
+

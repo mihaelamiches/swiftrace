@@ -24,7 +24,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeA-we-twv" customClass="MSStickerView">
                                 <rect key="frame" x="16" y="66" width="343" height="488"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMn-L7-sPJ">
                                 <rect key="frame" x="172" y="617" width="30" height="30"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XTC-dY-ldS" firstAttribute="top" secondItem="HeA-we-twv" secondAttribute="bottom" constant="113" id="AdS-Sw-K3R"/>
                             <constraint firstItem="XTC-dY-ldS" firstAttribute="top" secondItem="IMn-L7-sPJ" secondAttribute="bottom" constant="20" id="Fe6-C7-SK1"/>

@@ -14,7 +14,7 @@ import UIKit
     override func draw(_ rect: CGRect) {
         let carLabel = UILabel.carLabel()
         let progressColors: [UIColor] = [.red,.red, .yellow]
-        let padDelta = CGFloat(10)
+        let padDelta = CGFloat(40)
         let maxProgressDelta = padDelta + carLabel.bounds.width
         let progressDelta = rect.width - ((rect.width - maxProgressDelta) * percentCompleted)/100
     
