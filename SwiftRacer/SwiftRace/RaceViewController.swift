@@ -10,7 +10,7 @@ import UIKit
 
 class RaceViewController: UICollectionViewController {
     static let storyboardId = "RaceViewController"
-    var raceData: RaceData?
+    var racers: [String: RaceData]?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -21,11 +21,21 @@ class RaceViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RacerCollectionViewCell", for: indexPath) as? RacerCollectionViewCell else {
             fatalError("cannot dequeu a RacerCollectionViewCell from the storyboard")
         }
+        
+        guard let racers = racers else { return cell }
+        
+        let distance = CGFloat(racers.sorted { $0.key < $1.key }[indexPath.section].value.totalDistance)
+        cell.progressView.percentCompleted = (cell.progressView.bounds.size.width * distance)/100
+        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return racers?.count ?? 0
     }
 }
 

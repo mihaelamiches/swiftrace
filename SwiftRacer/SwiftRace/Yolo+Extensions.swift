@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension RaceData {
+extension Race {
     
     private struct StickerProperties {
-        /// The desired size of an ice cream sticker image.
+        /// The desired size of an racer sticker image.
         static let size = CGSize(width: 300.0, height: 300.0)
         
         /**
@@ -22,7 +22,7 @@ extension RaceData {
     }
     
     func renderSticker(opaque: Bool) -> UIImage? {
-        guard let partsImage = render(participants: []) else { return nil }
+        guard let partsImage = renderRaceSticker() else { return nil }
         
         // Determine the size to draw as a sticker.
         let outputSize: CGSize
@@ -72,8 +72,9 @@ extension RaceData {
     }
     
     /// Composites the racers into a single `UIImage`.
-    private func render(participants: [RaceParicipant]) -> UIImage? {
-        let partImages = participants.flatMap { $0.stickerImage }
+    private func renderRaceSticker() -> UIImage? {
+        
+        let partImages = participants.flatMap { $0.value.stickerImage() }
         
         guard !partImages.isEmpty else { return nil }
         

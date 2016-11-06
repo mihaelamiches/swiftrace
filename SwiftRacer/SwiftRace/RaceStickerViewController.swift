@@ -12,21 +12,21 @@ import Messages
 class RaceStickerViewController: UIViewController {
     static let storyboardId = "RaceStickerViewController"
     
-    var raceData: RaceData?
+    var race: Race?
     
     @IBOutlet weak var stickerView: MSStickerView!
     
     // MARK: UIViewController
     
     override func viewDidLoad() {
-        guard let raceData = raceData else { fatalError("no race") }
+        guard let race = race else { fatalError("no race") }
         super.viewDidLoad()
         
         // Update the sticker view
         let cache = RaceStickerCache.cache
         
         stickerView.sticker = cache.placeholderSticker
-        cache.sticker(for: raceData) { sticker in
+        cache.sticker(for: race) { sticker in
             OperationQueue.main.addOperation {
                 guard self.isViewLoaded else { return }
                 

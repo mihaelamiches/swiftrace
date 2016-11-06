@@ -21,15 +21,29 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func join(with raceData: RaceData) {
-        let cache = RaceStickerCache.cache
-        self.stickerView.sticker = cache.placeholderSticker
-        cache.sticker(for: raceData) { sticker in
-            OperationQueue.main.addOperation {
-                guard self.isViewLoaded else { return }
-                
-                self.stickerView.sticker = sticker
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        let race = Race(participants: [conversation.localParticipantIdentifier.uuidString : raceData])
+        let message = composeMessage(with: race, caption: "omg new race", session: conversation.selectedMessage?.session)
+        conversation.insert(message) { error in
+            guard error == nil else {
+                return print(error!)
             }
         }
+    }
+    
+    func composeMessage(with race: Race, caption: String, session: MSSession? = nil) -> MSMessage {
+        var components = URLComponents()
+        components.queryItems = race.queryItems
+        
+        let layout = MSMessageTemplateLayout()
+        layout.image = race.renderSticker(opaque: true)
+        layout.caption = caption
+        
+        let message = MSMessage(session: session ?? MSSession())
+        message.url = components.url!
+        message.layout = layout
+        
+        return message
     }
     
     func queryLocalRaceData(completion: @escaping ((RaceData) -> Void)) {
@@ -78,9 +92,9 @@ class MessagesViewController: MSMessagesAppViewController {
     
     func embedRaceViewController(for conversation: MSConversation?, withRace race: RaceData) {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: RaceViewController.storyboardId) as? RaceViewController else { fatalError("Unable to instantiate a RaceViewController from the storyboard") }
-        
+        guard let conversation = activeConversation else { return }
 
-        controller.raceData = race
+        controller.racers = [conversation.localParticipantIdentifier.uuidString :race]
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
             child.view.removeFromSuperview()

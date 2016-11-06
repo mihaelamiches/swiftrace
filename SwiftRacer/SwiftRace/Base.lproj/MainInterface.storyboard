@@ -50,6 +50,9 @@
                                     <constraint firstAttribute="leadingMargin" secondItem="qzS-al-7ge" secondAttribute="leading" id="wEJ-QM-m9q"/>
                                 </constraints>
                                 <size key="customSize" width="200" height="50"/>
+                                <connections>
+                                    <outlet property="progressView" destination="qzS-al-7ge" id="Ohz-ae-ih1"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -84,39 +87,8 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="la5-y1-J1U" customClass="MSStickerView">
-                                <rect key="frame" x="50" y="0.0" width="200" height="100"/>
+                                <rect key="frame" x="26" y="248" width="200" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Woa-ig-yLm" customClass="RaceProgressView" customModule="SwiftRace" customModuleProvider="target">
-                                <rect key="frame" x="42" y="244" width="237" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="percentCompleted">
-                                        <real key="value" value="97"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t09-Wb-V1n" customClass="RaceProgressView" customModule="SwiftRace" customModuleProvider="target">
-                                <rect key="frame" x="42" y="302" width="237" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="percentCompleted">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRg-yJ-GDb" customClass="RaceProgressView" customModule="SwiftRace" customModuleProvider="target">
-                                <rect key="frame" x="42" y="369" width="237" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="percentCompleted">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
