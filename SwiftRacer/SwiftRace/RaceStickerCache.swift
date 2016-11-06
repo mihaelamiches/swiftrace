@@ -17,8 +17,7 @@ class RaceStickerCache {
     
     private let queue = OperationQueue()
     
-    // MARK: Initialization
-    
+
     private init() {
         let fileManager = FileManager.default
         let tempPath = NSTemporaryDirectory()
@@ -43,20 +42,14 @@ class RaceStickerCache {
         }
     }
     
-    // MARK
-    
     func sticker(for race: Race, completion: @escaping (_ sticker: MSSticker) -> Void) {
-        // Determine the URL for the sticker.
-        let fileName = "race" + ".png"
+        let fileName = UUID().uuidString + ".png"
         let url = cacheURL.appendingPathComponent(fileName)
         
-        // Create an operation to process the request.
         let operation = BlockOperation {
-            // Check if the sticker already exists at the URL.
             let fileManager = FileManager.default
             guard !fileManager.fileExists(atPath: url.absoluteString) else { return }
             
-            // Create the sticker image and write it to disk.
             guard let image = race.renderSticker(opaque: false), let imageData = UIImagePNGRepresentation(image) else { fatalError("Unable to build image for race") }
             
             do {
@@ -66,7 +59,6 @@ class RaceStickerCache {
             }
         }
         
-        // Set the operation's completion block to call the request's completion handler.
         operation.completionBlock = {
             do {
                 let sticker = try MSSticker(contentsOfFileURL: url, localizedDescription: "🏎")
@@ -76,7 +68,6 @@ class RaceStickerCache {
             }
         }
         
-        // Add the operation to the queue to start the work.
         queue.addOperation(operation)
     }
 }
