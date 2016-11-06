@@ -81,7 +81,7 @@ class MessagesViewController: MSMessagesAppViewController {
                                           HKQuantityType.quantityType(forIdentifier: .distanceWheelchair)!]
         
         HKHealthStore().requestAuthorization(toShare: nil, read: Set(shareTypes)) { (success, error) -> Void in
-            guard success, error != nil else { return }
+            guard success, error == nil else { return }
             whenGranted()
         }
     }
