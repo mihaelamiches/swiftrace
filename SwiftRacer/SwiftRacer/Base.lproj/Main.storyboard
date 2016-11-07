@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,11 +19,24 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQC-CV-kit">
+                                <rect key="frame" x="26" y="504.66666666666674" width="368" height="223.33333333333326"/>
+                                <string key="text">this app only exists because I can't seem to find a way to request health permissions direclty from messages. Instead, iOS redirects me to the companion app 😢
+
+
+hopefully I'm wrong, as always
+
+
+nothing to see here, go to Messages for the real fun</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICP-8A-fZV">
-                                <rect key="frame" x="95" y="232" width="185" height="203"/>
+                                <rect key="frame" x="118" y="145" width="185" height="203"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="170"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,8 +44,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ICP-8A-fZV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HE9-k0-2RQ"/>
-                            <constraint firstItem="ICP-8A-fZV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="s8d-1Q-zjq"/>
+                            <constraint firstItem="QQC-CV-kit" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="6" id="2T1-LG-i5v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QQC-CV-kit" secondAttribute="trailing" id="5v2-N8-hnN"/>
+                            <constraint firstItem="ICP-8A-fZV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="3.5" id="HE9-k0-2RQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QQC-CV-kit" secondAttribute="bottom" constant="8" id="Xgl-ds-2bD"/>
+                            <constraint firstItem="ICP-8A-fZV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-121.5" id="s8d-1Q-zjq"/>
                         </constraints>
                     </view>
                 </viewController>
