@@ -14,7 +14,7 @@ struct RaceData {
     
     func stickerImage(percentCompleted: CGFloat) -> UIImage? {
         let raceProgressView = RaceProgressView(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 35)))
-        raceProgressView.percentCompleted = percentCompleted
+        raceProgressView.percentCompleted = percentCompleted.isNaN ? 0 : percentCompleted
         return UIImage(view: raceProgressView)
     }
 }
